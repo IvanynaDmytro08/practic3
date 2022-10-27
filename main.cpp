@@ -1,33 +1,90 @@
 #include <iostream>
 
+//class Mystring{
+//
+//private:
+//
+//    std::string m_string;
+//    int m_char;
+//public:
+//
+//    Mystring() {
+//    }
+//
+//
+//    std::string operator()(int index1, int index2, std::string string){
+//
+//        std::string rezult;
+//
+//        for (int i = 0; i < index2; i++) {
+//            rezult += string[index1 + i];
+//        }
+//        return rezult;
+//    }
+//
+//};
+//
+//
+//int main() {
+//
+//    int number;
+//    std::string name;
+//
+//
+//    std::cout << "Hello, World!" << std::endl;
+//
+//    Mystring string;
+//    std::cout << string (7, 6, "Hello, World!");
+//
+//    std::cout << "\nInput  number which element you want return" << std::endl;
+//    std::cin >> number;
+//
+//
+//
+//}
 
-class Mystring{
+class String {
 
-private:
-
-    std::string m_string;
+ std::string m_array;
 
 public:
 
-    Mystring(const std::string line = " "):m_string(line) {
+    String(std::string word):m_array(word){
+
     }
-
-    std::string operator()(int index1, int index2){
-
-        std::string rezult;
-
-        for (int i = 0; i < index2; i++) {
-           rezult += m_string[index1 + i];
+        char operator[](int index) {
+        return m_array[index];
         }
-        return rezult;
+
+        int operator()(char symbol){
+
+        bool findChar = true;
+
+            for (int count = 0; count < m_array.size(); count++ ) {
+
+                if (symbol == m_array[count]) {
+                    return count;
+                }
+            }
+            if (findChar == true)
+                return -1;
     }
 
 };
 
+int main () {
 
-int main() {
+    int number;
+    char symbol;
 
-    Mystring string("Hello, World!");
-    std::cout << string (7, 6);
+    String index("lolidog");
+
+    std::cout << "Input index element which you want return " << std::endl;
+    std::cin >> number ;
+    std::cout <<  index[number];
+
+    std::cout << "\nInput symbol which you want loking for " << std::endl;
+    std::cin >> symbol;
+    std::cout << index(symbol);
 
 }
