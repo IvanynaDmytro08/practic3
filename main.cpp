@@ -77,11 +77,19 @@ int main () {
 
     int number;
     char symbol;
+    std::string word;
 
-    String index("lolidog");
+    std::cout << "Input word - ";
+    std::getline(std::cin, word);
 
-    std::cout << "Input index element which you want return " << std::endl;
-    std::cin >> number ;
+    String index(word);
+
+    do {
+        std::cout << "Input index element which you want return " << std::endl;
+        std::cin >> number;
+
+    } while (number > word.size());
+
     std::cout <<  index[number];
 
     std::cout << "\nInput symbol which you want loking for " << std::endl;
